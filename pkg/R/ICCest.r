@@ -3,7 +3,7 @@
 
 ICCest<-function(x, y, data=data, alpha=0.05){
   if(is.data.frame(data)==FALSE)
-       stop(paste("object dataframe is of the type", class(dataframe), "and must be of type data.frame", sep=" "))
+       stop(paste("object dataframe is of the type", class(data), "and must be of type data.frame", sep=" "))
   square<-function(z){z^2}
   ICCcall <- Call <-match.call()
   xc<-as.character(ICCcall[[2L]])

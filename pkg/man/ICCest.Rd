@@ -2,15 +2,21 @@
 \alias{ICCest}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{A function to estimate the Intraclass Correlation Coefficient}
-\description{Estimates the ICC and confidence interval using a one-way anova.}
+\description{Estimates the ICC and confidence intervals using a one-way anova.}
 \usage{
-ICCest(x, y, data = data, alpha = 0.05)
+ICCest(x, y, data = data, alpha = 0.05, CI.type=c(")
 }
 \arguments{
   \item{x}{column name indicating individual or group id in the dataframe \code{data}}
   \item{y}{column name indicating measurements in the dataframe \code{data}}
   \item{data}{a dataframe containing \code{x} and \code{y}}
   \item{alpha}{the alpha level to use when estimating the confidence interval.  Default is 0.05.}
+  \item{CI.type}{the particular confidence interval to estimate.  Can be specified by just the first letter of the name.  See Details section for more.}
+}
+
+\details{The confidence interval can be estimated from one of two methods included here.  CIs of the type \code{"THD"} are based upon the exact confidence limit equation in Searle (1971) and can be used for unbalanced data (see Thomas & Hultquist 1978; Donner 1979).
+
+CIs of the type \code{"Smith"} are based upon the approximate formulas for the standard error of the ICC estimate (Smith 1956).
 }
 
 \value{
@@ -23,14 +29,18 @@ ICCest(x, y, data = data, alpha = 0.05)
   \item{vara}{the among individual or group variance}
 
 }
-\references{C.M. Lessells and P.T. Boag. 1987. The Auk, 104(1):116-121.}
-
+\references{C.M. Lessells and P.T. Boag. 1987. The Auk, 104(1):116-121.
+Searle, S.R. 1971. Linear Models. New York: Wiley.
+Thomas, J.D. and Hultquist, R.A. 1978. Annals of Statistics, 6:582-587.
+Donner, A. 1979. American Journal of Epidemiology, 110:335-342.
+Smith, C.A.B. 1956. Annals of Human Genetics, 21:363-373.
+}
 \author{Matthew Wolak \email{matthewwolak@gmail.com}}
 
 \seealso{\code{\link{ICCbare}}}
 \examples{
 data(ChickWeight)
-ICCest(Chick, weight, data=ChickWeight)
+ICCest(Chick, weight, data=ChickWeight, CI.type="S")
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

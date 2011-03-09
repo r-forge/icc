@@ -1,4 +1,4 @@
-ICCest<-function(x, y, data=data, alpha=0.05){
+ICCest<-function(x, y, data=data, alpha=0.05, CI.type=c("THD", "Smith")){
   if(is.data.frame(data)==FALSE)
        stop(paste("object dataframe is of the type", class(data), "and must be of type data.frame", sep=" "))
   square<-function(z){z^2}
@@ -21,11 +21,25 @@ ICCest<-function(x, y, data=data, alpha=0.05){
   var.w<-MSw
   var.a<-(MSa-MSw)/(k)
   r<-var.a/(var.w + var.a)
-  
+
   low.F<-qf(alpha/2, num.df, denom.df, lower.tail=FALSE)
-  up.F<-1/(qf(1-alpha/2, denom.df, num.df, lower.tail=TRUE))
-  low.CI<-1-((k*MSw*low.F)/(MSa+MSw*(k-1)*low.F))
-  up.CI<-1-((k*MSw*up.F)/(MSa+MSw*(k-1)*up.F))
+  N<-dim(na.omit(tdata))[1]
+  n.bar<-N/a
+  n.not<-n.bar-sum(square(tmp.outj-n.bar)/((a-1)*N))	
+    type<-match.arg(CI.type)
+      if(type=="THD"){
+	up.F<-qf(alpha/2, denom.df, num.df, lower.tail=FALSE)	
+	FL<-(MSa/MSw)/low.F
+	FU<-(MSa/MSw)*up.F
+	low.CI<-(FL-1)/(FL+n.not-1)
+	up.CI<-(FU-1)/(FU+n.not-1)
+       }
+      if(type=="Smith"){
+	z.not<-qnorm(alpha/2)
+	Vr<-(2*square(1-r)/square(n.not))*((square((1+r*(n.not-1)))/(N-a))+((a-1)*(1-r)*(1+r*(2*n.not-1))+square(r)*(sum(square(tmp.outj))-2*(1/N)*sum((tmp.outj^3))+(1/square(N))*square(sum(square(tmp.outj)))))/square(a-1))
+	low.CI<-r+z.not*sqrt(Vr)
+	up.CI<-r-z.not*sqrt(Vr) 
+      }
 
 list(ICC=r, LowerCI=low.CI, UpperCI=up.CI, N=a, k=k, varw=var.w, vara=var.a)
 }

@@ -1,7 +1,7 @@
 Package: ICC
 Type: Package
 Title: Functions facilitating the estimation of the Intraclass Correlation Coefficient
-Version: 1.5
+Version: 2.0
 Date: 2011-01-31
 Author: Matthew Wolak
 Maintainer: <matthewwolak@gmail.com>

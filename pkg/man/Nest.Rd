@@ -4,7 +4,8 @@
 \description{Given a predicted ICC and \code{k} measures per individual/group, this function will calculate the \code{N} individuals/groups required to obtain a desired confidence interval \code{w}(according to Bonett, 2002).
 }
 \usage{
-Nest(est.type = c("hypothetical", "pilot"), w, ICC = NULL, k = NULL, x = NULL, y = NULL, data = NULL, alpha = 0.05)
+Nest(est.type = c("hypothetical", "pilot"), w, ICC = NULL, k = NULL,
+x = NULL, y = NULL, data = NULL, alpha = 0.05)
 }
 \arguments{
   \item{est.type}{character string of either \code{"hypothetical"} indicating usage of the given values of \code{k} and \code{ICC} or if \code{"pilot"} is specified then to calculate these from the dataset provided.  Also, just the first letter may be used
@@ -40,6 +41,3 @@ ex2
 #Example 3
 Nest("h", w=0.14, ICC=seq(0.05, 0.15, 0.05), k=seq(10,12,1))
 }
-
-%\keyword{ ~kwd1 }
-%\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

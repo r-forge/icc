@@ -42,7 +42,3 @@ Smith, C.A.B. 1956. Annals of Human Genetics, 21:363-373.
 data(ChickWeight)
 ICCest(Chick, weight, data=ChickWeight, CI.type="S")
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-%\keyword{ ~kwd1 }
-%\keyword{ ~kwd2 }

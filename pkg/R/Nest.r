@@ -1,13 +1,13 @@
 Nest<-function(est.type=c("hypothetical", "pilot"), w, ICC=NULL, k=NULL, x=NULL, y=NULL, data=NULL, alpha=0.05){
-  z<-qnorm(1-alpha/2, mean=0, sd=1) #point on standard normal distribution exceeded with probability alpha/2
+  z<-qnorm(1-alpha/2, mean=0, sd=1)
 
   type<-match.arg(est.type)
   if(type=="hypothetical") {
     n.est<-matrix(nrow=length(ICC), ncol=length(k))   
     for (i in 1:length(ICC)){
       for(j in 1:length(k)){
-        n.est1<-8*(z^2)*(((1-ICC[i])^2)*((1+(k[j]-1)*ICC[i])^2))/(k[j]*(k[j]-1)*(w^2))+1 #estimated sample size for a given CI width
-        n.est2<-ceiling(n.est1) #rounded UP to nearest integer
+        n.est1<-8*(z^2)*(((1-ICC[i])^2)*((1+(k[j]-1)*ICC[i])^2))/(k[j]*(k[j]-1)*(w^2))+1 
+        n.est2<-ceiling(n.est1)
         n.est[i,j]<-n.est2
       }
     }
@@ -34,16 +34,18 @@ n.est.table
   var.w<-MSw
   var.a<-(MSa-MSw)/(k)
   r<-var.a/(var.w + var.a)
-#below computes the Confidence interval
+  N<-dim(na.omit(tdata))[1]
+  n.bar<-N/a
+  n.not<-n.bar-sum(square(tmp.outj-n.bar)/((a-1)*N))	
   low.F<-qf(alpha/2, num.df, denom.df, lower.tail=FALSE)
-  up.F<-1/(qf(1-alpha/2, denom.df, num.df, lower.tail=TRUE))
-  low.CI<-1-((k*MSw*low.F)/(MSa+MSw*(k-1)*low.F))
-  up.CI<-1-((k*MSw*up.F)/(MSa+MSw*(k-1)*up.F))
+  up.F<-qf(alpha/2, denom.df, num.df, lower.tail=FALSE)
+  FL<-(MSa/MSw)/low.F
+  FU<-(MSa/MSw)*up.F
+  low.CI<-(FL-1)/(FL+n.not-1)
+  up.CI<-(FU-1)/(FU+n.not-1)
   ICC.results<-list(ICC=r, LowerCI=low.CI, UpperCI=up.CI, N=a, k=k, var.within=var.w, var.among=var.a)
-#estimated sample size for a given CI width using provided data
     n.est1b<-8*(z^2)*(((1-ICC.results$ICC)^2)*((1+(ICC.results$k-1)*ICC.results$ICC)^2))/(ICC.results$k*(ICC.results$k-1)*(w^2))+1
     n.est2b<-ceiling(n.est1b)
     n.est2b
   }
 }
-

@@ -7,7 +7,8 @@
 }
 
 \usage{
-effort(est.type = c("hypothetical", "pilot"), e = NULL, ICC = NULL, x = NULL, y = NULL, data = NULL, alpha = 0.05)
+effort(est.type = c("hypothetical", "pilot"), e = NULL, ICC = NULL,
+x = NULL, y = NULL, data = NULL, alpha = 0.05)
 }
 
 \arguments{

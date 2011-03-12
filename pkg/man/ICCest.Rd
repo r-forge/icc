@@ -4,7 +4,7 @@
 \title{A function to estimate the Intraclass Correlation Coefficient}
 \description{Estimates the ICC and confidence intervals using a one-way anova.}
 \usage{
-ICCest(x, y, data = data, alpha = 0.05, CI.type=c(")
+ICCest(x, y, data = data, alpha = 0.05, CI.type=c("THD", "Smith"))
 }
 \arguments{
   \item{x}{column name indicating individual or group id in the dataframe \code{data}}

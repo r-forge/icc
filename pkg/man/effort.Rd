@@ -40,7 +40,8 @@ effort(est.type="h", e=c(30, 60, 120), ICC=0.2)
 #Example 2
 data(ChickWeight)
 effort(est.type="p", x=Chick, y=weight, data=ChickWeight)
-
+}
 
 %\keyword{ ~kwd1 }
-%\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+%\keyword{ ~kwd2 }
+

@@ -67,7 +67,7 @@ results<-list(e=e, pairs=pairs, widths=widths, ICC=ICC)
    line.types<-rep(c("dashed", "solid", "dotted"), length.out=length(e))
  plot(results$widths[[1]]~results$pairs[[1]][,1], 
    main=paste("Optimal k;  ICC = ", round(results$ICC,2), sep=""),
-   xlab="k", ylab="width of CI", axes=F, type="n",
+   xlab="k", ylab="width of CI", axes=FALSE, type="n",
    xlim=c(1,25), ylim=c(0,1))
  axis(1, at=seq(2, 24, 2), cex.axis=1.1)
  axis(2, at=seq(0, 1, 0.1), cex.axis=1.1, las=1)

@@ -13,6 +13,8 @@ License: \tab GPL-2\cr
 LazyLoad: \tab yes\cr
 }
 }
-\seealso{\link{\code{ICCest}}, \link{\code{Nest}}, \link{\code{ICCbare}}, \link{\code{effort}}}
+\seealso{\code{ICCest}, \code{Nest}, \code{ICCbare},
+\code{effort}
+}
 
 

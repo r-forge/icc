@@ -20,4 +20,3 @@ ICCbare(x, y, data)
 }
 \author{Matthew Wolak \email{matthewwolak@gmail.com}}
 \seealso{\code{\link{ICCest}}}
-}

@@ -5,6 +5,6 @@ citEntry(entry="article",
 			as.person("Daphne J. Fairbairn"),
 			as.person("Yale R. Paulsen")),	
 	year="2011",
-	note=vers,
+	textVersion="M.E. Wolak, D.J. Fairbairn, Y.R. Paulsen (2011) Guidelines for Estimating Repeatability. Methods in Ecology and Evolution.",
 	journal="Methods in Ecology and Evolution")
 

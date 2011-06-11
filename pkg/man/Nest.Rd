@@ -22,6 +22,7 @@ x = NULL, y = NULL, data = NULL, alpha = 0.05)
 }
 \value{\code{data.frame} indicating the N number of individuals or groups to use to estimate the given ICC with a desired confidence interval width.  Rows represent different levels of ICC while columns indicate different levels of \code{k} measurements per individual/group.}
 \references{D.G. Bonett. 2002. Statistics in Medicine, 21(9): 1331-1335.
+
 M.E. Wolak, D.J. Fairbairn, Y.R. Paulsen. 2011. Methods in Ecology and Evolution.}
 \author{Matthew Wolak \email{matthewwolak@gmail.com}
 }

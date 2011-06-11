@@ -21,7 +21,8 @@ x = NULL, y = NULL, data = NULL, alpha = 0.05)
 \details{More than one \code{ICC} or \code{k} may be given.  In this case, the return value is a dataframe with rows representing the values of the specified ICCs and the columns yield the different \code{k} values.
 }
 \value{\code{data.frame} indicating the N number of individuals or groups to use to estimate the given ICC with a desired confidence interval width.  Rows represent different levels of ICC while columns indicate different levels of \code{k} measurements per individual/group.}
-\references{D.G. Bonett. 2002. Statistics in Medicine, 21(9): 1331-1335.}
+\references{D.G. Bonett. 2002. Statistics in Medicine, 21(9): 1331-1335.
+M.E. Wolak, D.J. Fairbairn, Y.R. Paulsen. 2011. Methods in Ecology and Evolution.}
 \author{Matthew Wolak \email{matthewwolak@gmail.com}
 }
 \seealso{\code{\link{ICCest}}

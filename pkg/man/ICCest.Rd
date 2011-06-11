@@ -2,7 +2,7 @@
 \alias{ICCest}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{A function to estimate the Intraclass Correlation Coefficient}
-\description{Estimates the ICC and confidence intervals using a one-way anova.}
+\description{Estimates the ICC and confidence intervals using the variance components from a one-way ANOVA.}
 \usage{
 ICCest(x, y, data = data, alpha = 0.05, CI.type=c("THD", "Smith"))
 }
@@ -14,7 +14,9 @@ ICCest(x, y, data = data, alpha = 0.05, CI.type=c("THD", "Smith"))
   \item{CI.type}{the particular confidence interval to estimate.  Can be specified by just the first letter of the name.  See Details section for more.}
 }
 
-\details{The confidence interval can be estimated from one of two methods included here.  CIs of the type \code{"THD"} are based upon the exact confidence limit equation in Searle (1971) and can be used for unbalanced data (see Thomas & Hultquist 1978; Donner 1979).
+\details{If the dependent variable, \code{x}, is not a factor, then the function will change it into a factor and produce a warning message. 
+
+The confidence interval can be estimated from one of two methods included here.  CIs of the type \code{"THD"} are based upon the exact confidence limit equation in Searle (1971) and can be used for unbalanced data (see Thomas & Hultquist 1978; Donner 1979).
 
 CIs of the type \code{"Smith"} are based upon the approximate formulas for the standard error of the ICC estimate (Smith 1956).
 }

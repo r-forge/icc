@@ -1,10 +1,10 @@
 Package: ICC
 Type: Package
 Title: Functions facilitating the estimation of the Intraclass Correlation Coefficient
-Version: 2.0
+Version: 2.1
 Date: 2011-01-31
 Author: Matthew Wolak
 Maintainer: <matthewwolak@gmail.com>
-Description: The package allows for the estimation of the Intraclass Correlation Coefficient (ICC) as well as its confidence interval.  Also, it estimates the number of individuals or groups necessary to obtain an ICC estimate with a desired confidence interval width.
+Description: The package includes a number of functions to assist in the estimation of the Intraclass Correlation Coefficient (ICC).  Functions included estimate the ICC from variance components of a one-way ANOVA and also estimate the number of individuals or groups necessary to obtain an ICC estimate with a desired confidence interval width.
 License: GPL-2
 LazyLoad: yes

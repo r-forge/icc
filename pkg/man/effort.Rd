@@ -12,7 +12,7 @@ x = NULL, y = NULL, data = NULL, alpha = 0.05)
 }
 
 \arguments{
-  \item{est.type}{character string of either \code{"hypothetical"} indicating usage of the given values of effort (\code{e}) and intraclass correlation coefficient (\code{ICC}) or if \code{"pilot"} is specified then to calculate these from the dataset provided.  Also, just the first letter may be used
+  \item{est.type}{character string of either \code{"hypothetical"} indicating usage of the given values of effort (\code{e}) and intraclass correlation coefficient (\code{ICC}) or if \code{"pilot"} is specified then to calculate these from the dataset provided.  Just the first letter may be used.
 }
   \item{e}{the total effort (\code{n} individuals times \code{k} measurements per individual).  May be a vector of effort levels.
 }

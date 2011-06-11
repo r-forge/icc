@@ -46,6 +46,9 @@ effort<-function(est.type=c("hypothetical", "pilot"), e=NULL, ICC=NULL, x=NULL, 
       inds<-unique(data[xc])[[1]]
       a<-length(inds)
       tdata<-data.frame(data[yc], data[xc])
+      if(!is.factor(tdata[,2])){
+        tdata[,2]<-as.factor(tdata[,2])
+        }  
       tmpbb<-anova.lm(aov(tdata[,1]~tdata[,2], data=tdata))
       num.df<-tmpbb[1][1,1]
       denom.df<-tmpbb[1][2,1];

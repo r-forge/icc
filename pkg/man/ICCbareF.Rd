@@ -1,7 +1,7 @@
 \name{ICCbareF}
 \alias{ICCbareF}
 \title{Simple function to estimate the Intraclass Correlation Coefficient}
-\description{This function only estimates the Intraclass Correlation Coefficient (ICC).  It is meant to be as simple and fast as possible for use in Monte Carlo simulations or bootstrapping.  Calculates the ANOVA by hand, instead of using the aov() function, to obtain variance components.}
+\description{This function only estimates the Intraclass Correlation Coefficient (ICC).  It is meant to be as simple and fast as possible for use in Monte Carlo simulations or bootstrapping.  Calculates the variance components 'by hand', instead of using the aov() function.}
 \usage{
 ICCbareF(x, y, data)
 }
@@ -11,7 +11,7 @@ ICCbareF(x, y, data)
   \item{data}{a dataframe containing \code{x} and \code{y}}
 }
 
-\details{\code{ICCbareF} is distinguished from \code{ICCbare}, in that \code{ICCbare} is more flexible and can handle missing values and unbalanced datasets.  \code{ICCbareF} cannot and can only be used on balanced datasets without any NAs.
+\details{\code{ICCbareF} is distinguished from \code{ICCbare}, in that \code{ICCbare} is more flexible and can handle missing values and unbalanced datasets.  \code{ICCbareF} cannot and should only be used on balanced datasets without any NAs.
 }
 
 \value{

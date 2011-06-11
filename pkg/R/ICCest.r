@@ -1,5 +1,5 @@
 ICCest<-function(x, y, data=data, alpha=0.05, CI.type=c("THD", "Smith")){
-  if(is.data.frame(data)==FALSE)
+  if(!is.data.frame(data))
        stop("object dataframe is of the type '", class(data), "' and must be of type 'data.frame'")
   square<-function(z){z^2}
   ICCcall <- Call <-match.call()
@@ -8,6 +8,10 @@ ICCest<-function(x, y, data=data, alpha=0.05, CI.type=c("THD", "Smith")){
   inds<-unique(data[xc])[[1]]
   a<-length(inds)
   tdata<-data.frame(data[yc], data[xc])
+  if(!is.factor(tdata[,2])){
+    warning("x has been coerced to a factor")
+    tdata[,2]<-as.factor(tdata[,2])
+    }
 
   tmpbb<-anova.lm(aov(tdata[,1]~tdata[,2], data=tdata))
   num.df<-tmpbb[1][1,1]

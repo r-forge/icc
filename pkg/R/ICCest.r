@@ -1,4 +1,5 @@
-ICCest<-function(x, y, data=data, alpha=0.05, CI.type=c("THD", "Smith")){
+ICCest<-function(x, y, data=data, alpha=0.05, CI.type=c("THD", "Smith"))
+{
   if(!is.data.frame(data))
        stop("object dataframe is of the type '", class(data), "' and must be of type 'data.frame'")
   square<-function(z){z^2}
@@ -12,6 +13,22 @@ ICCest<-function(x, y, data=data, alpha=0.05, CI.type=c("THD", "Smith")){
     warning("x has been coerced to a factor")
     tdata[,2]<-as.factor(tdata[,2])
     }
+  if(length(levels(tdata[,2])) > length(unique(tdata[,2])))
+	stop("levels assigned to 'x' are greater than the actual levels of 'x'")
+  
+  nacheck <- function(x){
+     result <- unlist(lapply(x, FUN = is.na))
+     if(all(result)){
+     return(FALSE)
+       } else{return(TRUE)}
+  } 
+  
+  unstackedt <- unstack(tdata)
+  TF <- lapply(unstackedt, FUN = nacheck)
+  if(any(unlist(TF) == FALSE)){
+	warning("one or more groups in 'x' do not contain any records and have been removed")
+	tdata <- tdata[!tdata[,2] == which(unlist(TF) == FALSE), ]
+  }
 
   tmpbb<-anova.lm(aov(tdata[,1]~tdata[,2], data=tdata))
   num.df<-tmpbb[1][1,1]
